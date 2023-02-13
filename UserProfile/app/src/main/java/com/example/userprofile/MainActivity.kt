@@ -52,15 +52,30 @@ fun ProfileCard() {
             ) {
                 ProfileImageFunction()
                 Divider(thickness = 4.dp)
-                Column(modifier = Modifier.padding(5.dp)) {
-                    Text(
-                        text = "Harshad Pawar",
-                        style = MaterialTheme.typography.h4,
-                        color = MaterialTheme.colors.error
-                    )
-                }
+                ProfileDescription()
             }
         }
+    }
+}
+
+@Composable
+private fun ProfileDescription() {
+    Column(modifier = Modifier.padding(5.dp)) {
+        Text(
+            text = "Harshad Pawar",
+            style = MaterialTheme.typography.h4,
+            color = MaterialTheme.colors.error
+        )
+        Text(
+            text = "Android Compose Programmer",
+            modifier = Modifier.padding(3.dp),
+            style = MaterialTheme.typography.h5
+        )
+        Text(
+            text = "harshad.pawar@lji.io",
+            modifier = Modifier.padding(3.dp),
+            style = MaterialTheme.typography.h6
+        )
     }
 }
 
