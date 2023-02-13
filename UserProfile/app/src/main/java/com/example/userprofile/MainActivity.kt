@@ -9,9 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,6 +51,14 @@ fun ProfileCard() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ProfileImageFunction()
+                Divider(thickness = 4.dp)
+                Column(modifier = Modifier.padding(5.dp)) {
+                    Text(
+                        text = "Harshad Pawar",
+                        style = MaterialTheme.typography.h4,
+                        color = MaterialTheme.colors.error
+                    )
+                }
             }
         }
     }
