@@ -19,7 +19,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.userprofile.ui.theme.UserProfileTheme
@@ -104,9 +106,9 @@ private fun ProfileDescription() {
 }
 
 @Composable
-private fun ProfileImageFunction() {
+private fun ProfileImageFunction(modifier: Modifier = Modifier) {
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .size(150.dp)
             .padding(5.dp),
         shape = CircleShape,
@@ -117,11 +119,10 @@ private fun ProfileImageFunction() {
         Image(
             painter = painterResource(id = R.drawable.profile_images),
             contentDescription = "user Profile image",
-            modifier = Modifier.size(135.dp)
+            modifier = modifier.size(135.dp)
         )
     }
 }
-
 
 @Composable
 fun Content() {
@@ -141,12 +142,26 @@ fun Content() {
 fun Portfolio(data: List<String>) {
     LazyColumn {
         items(data) { item ->
-            Text(text = item)
+            Card(
+                modifier = Modifier.padding(13.dp).fillMaxWidth(),
+                shape = RectangleShape
+            ) {
+                Row(
+                    modifier = Modifier.padding(8.dp).background(MaterialTheme.colors.surface)
+                        .padding(16.dp)
+                ) {
+                    ProfileImageFunction(modifier = Modifier.size(80.dp))
+                    Column(modifier = Modifier.padding(7.dp)) {
+                        Text(text = item, fontWeight = FontWeight.Bold)
+                        Text(text = "This Project is Awesome...!")
+                    }
+                }
+            }
         }
     }
 }
 
- @Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     UserProfileTheme {
