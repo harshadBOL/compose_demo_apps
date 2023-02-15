@@ -1,5 +1,5 @@
-# compose_demo_apps
-This Repo consist of compose demo apps
+# compose user profile app
+This is a compose demo app
 ## Screenshots
 |**Profile Section**|**Portfolios**|
 |:---|:--|
